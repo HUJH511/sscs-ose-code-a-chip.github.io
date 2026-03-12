@@ -83,7 +83,7 @@ class EDAPipeline:
         self.specs = list(specs or self.DEFAULT_SPECS)
         self.reset_kwargs = dict(reset_kwargs or self.DEFAULT_RESET)
         
-        cfg_path = Path(f"spec2layout/dconfigs/{design}.yaml")
+        cfg_path = Path(f"src/dconfigs/{design}.yaml")
 
         # Keys that depend on selected tools/PDK
         self.layout_tool = self.steps.get("layout", "ALIGN")    # default to ALIGN
@@ -152,6 +152,26 @@ class EDAPipeline:
     # ------------------------------------------------------------------ #
     # Public API
     # ------------------------------------------------------------------ #
+    def run_all(self) -> None:
+        log = cabgen.setup_logger("eda_pipeline", console=True)
+
+        log.info("Starting EDA pipeline for %s", self.design_name, extra={"stage": "PIPELINE"})
+
+        self._reset_workspace()
+        log.info("Workspace reset", extra={"stage": "RESET"})
+
+        unknown = set(self.steps) - set(self._step_registries)  # validate step keys
+        if unknown:
+            raise ValueError(f"Unknown step key(s) in steps: {sorted(unknown)}")
+        
+        # Run only steps that are present in self.steps, but in a stable order
+        for step_key in self._step_order:
+            if step_key not in self.steps:
+                continue
+            self._dispatch(self._step_registries[step_key], step_key)
+
+        log.info("Completed EDA pipeline for %s", self.design_name, extra={"stage": "PIPELINE"})
+
     def run_cabgen(self, num_trials: int = 9) -> None:
         log = cabgen.setup_logger("eda_pipeline", console=True)
 
@@ -168,7 +188,7 @@ class EDAPipeline:
         for i in range(num_trials):
             netlist._write(self.cfg.get_path("ngspice.work_dir") / "param.spice", param_dict[i])
 
-            self._reset_workspace(cabgen=True)
+            self._reset_workspace(bench_gen=True)
             log.info("Workspace reset for benchmark generation trail %d", i, extra={"stage": "RESET"})
 
             unknown = set(self.steps) - set(self._step_registries)  # validate step keys
@@ -227,11 +247,11 @@ class EDAPipeline:
             elif item.is_dir():
                 shutil.rmtree(item)
 
-    def _reset_workspace(self, cabgen=False) -> None:
+    def _reset_workspace(self, bench_gen=False) -> None:
         # Base workspace: designs/<design>/<PDK>/runs
         base_ws = Path("designs", self.design_name, self.pdk, "runs")
         cabgen.reset_design_workspace(base_dir=base_ws, **self.reset_kwargs)
-        if cabgen:
+        if bench_gen:
             if self.steps.get("layout") == None:
                 pass
             elif self.steps.get("layout").lower() == "align":

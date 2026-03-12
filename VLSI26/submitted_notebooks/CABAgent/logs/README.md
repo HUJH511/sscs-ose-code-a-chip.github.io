@@ -1,1 +1,1 @@
-## Directory to place training logs
+## Directory to place running logs

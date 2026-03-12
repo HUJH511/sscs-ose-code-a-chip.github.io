@@ -1,0 +1,23 @@
+# ---------- User-specified files to ignore ---------- 
+# Edit the following if necessary
+.conda/*
+.vscode/*
+logs/*
+!logs/README.md
+
+designs/*/*/runs
+designs/*/*/results
+designs/*/*/xschem
+
+.env
+.gitmodules
+*.pyc
+*.pt
+*.pth
+*.tar.gz
+
+*.ext
+*.sim
+*.nodes
+
+# ---------- End of user-specified list of files to ignore ---------- 

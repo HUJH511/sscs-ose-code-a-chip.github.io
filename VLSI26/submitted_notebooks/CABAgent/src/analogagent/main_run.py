@@ -1,38 +1,49 @@
 from openai import OpenAI
 import openai
-import google.generativeai as genai
 import argparse
 import re
 import os
 import subprocess
 import time
-import pandas as pd
 import sys
 import shutil
 import signal
 import json
 from dotenv import load_dotenv
 load_dotenv()
-from curator import ExperienceCurator
+
+# Support both standalone execution and package import
+try:
+    from .curator import ExperienceCurator
+    from .agents import CodeGenerator, DesignOptimizer
+except ImportError:
+    from curator import ExperienceCurator
+    from agents import CodeGenerator, DesignOptimizer
+
 class TimeoutException(Exception):
     pass
-from agents import CodeGenerator, DesignOptimizer
+
 def signal_handler(signum, frame):
     raise TimeoutException("timeout")
-parser = argparse.ArgumentParser()
-parser.add_argument('--model', type=str, choices=["gpt-5", "local", "gemini"], default="gemini")
-parser.add_argument('--gemini_model', type=str, default="gemini-2.5-flash",
-                    help="Gemini model name (e.g. gemini-2.5-flash, gemini-2.0-flash)")
-parser.add_argument('--temperature', type=float, default=1.0)
-parser.add_argument('--num_per_task', type=int, default=15)
-parser.add_argument('--num_of_retry', type=int, default=3)
-parser.add_argument("--num_of_done", type=int, default=0)
-parser.add_argument("--task_id", type=int, default=1)
-parser.add_argument("--ngspice", action="store_true", default=False)
-parser.add_argument("--retrieval", action="store_true", default=True)
-parser.add_argument('--api_key', type=str)
 
-args = parser.parse_args()
+# Argparse only when run as CLI script; provide defaults for package import
+args = None
+def _parse_args():
+    global args
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model', type=str, choices=["gpt-5", "local", "gemini"], default="gemini")
+    parser.add_argument('--gemini_model', type=str, default="gemini-2.5-flash",
+                        help="Gemini model name (e.g. gemini-2.5-flash, gemini-2.0-flash)")
+    parser.add_argument('--temperature', type=float, default=1.0)
+    parser.add_argument('--num_per_task', type=int, default=15)
+    parser.add_argument('--num_of_retry', type=int, default=3)
+    parser.add_argument("--num_of_done", type=int, default=0)
+    parser.add_argument("--task_id", type=int, default=1)
+    parser.add_argument("--ngspice", action="store_true", default=False)
+    parser.add_argument("--retrieval", action="store_true", default=True)
+    parser.add_argument('--api_key', type=str)
+    args = parser.parse_args()
+    return args
 
 opensource_models = ["llama", "mistral", "qwen","deepseek"]
 
@@ -1597,5 +1608,6 @@ def main():
         
     
 if __name__ == "__main__":
+    _parse_args()
     main()
 

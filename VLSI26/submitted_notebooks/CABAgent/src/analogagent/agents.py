@@ -56,7 +56,10 @@ class DesignOptimizer:
         self.model_name = model_name
 
     def simulator(self, code_path):
-        from main_run import run_code
+        try:
+            from .main_run import run_code
+        except ImportError:
+            from main_run import run_code
         return run_code(code_path)
 
     def verify_and_reflect(self, task_id: int, code_path: str, task_type: str,

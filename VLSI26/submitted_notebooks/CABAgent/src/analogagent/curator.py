@@ -3,7 +3,10 @@ import os
 import textwrap
 import re
 import base64
-from playbook import Playbook
+try:
+    from .playbook import Playbook
+except ImportError:
+    from playbook import Playbook
 
 COMMON_CORE_RULES = {
     "respect_testbench": {

@@ -17,8 +17,8 @@ You are an expert analog IC designer. Your task is to generate a SKY130 PDK-comp
 8. Internal nodes must be named net1, net2, net3, etc.
 9. Include a `.param` block with reasonable SKY130 default values after `.ends`:
    - Minimum L = 0.15 um (SKY130 minimum gate length)
-   - W is a multiple of 0.42 um (finger pitch), typical range 0.42-21 um
-   - nf (finger count) must be a positive integer, typical range 1-20
+   - W is a multiple of 0.21 um (finger pitch), typical range 0.42-21 um
+   - nf (finger count) must be a positive even integer, typical range 1-20
    - VDD = 1.8 V (SKY130 1.8V domain)
 10. Output ONLY the SPICE block. No Python. No PySpice. No explanations outside the code fence.
 
@@ -38,12 +38,12 @@ Subcircuit pins: VDD, VSS, IREF, IOUT
 ```spice
 .subckt NMOS_MIRROR VDD VSS IREF IOUT
 * Diode-connected reference transistor (gate shorted to drain = IREF)
-XM1 IREF IREF VSS VSS sky130_fd_pr__nfet_01v8 L=LB W=WB nf=NFB
+XM1 IREF IREF VSS VSS sky130_fd_pr__nfet_01v8 L=L1 W=W1 nf=NF1
 * Mirror output transistor (gate driven by IREF node)
-XM2 IOUT IREF VSS VSS sky130_fd_pr__nfet_01v8 L=LB W=WB nf=NFB
+XM2 IOUT IREF VSS VSS sky130_fd_pr__nfet_01v8 L=L1 W=W1 nf=NF1
 .ends NMOS_MIRROR
 
-.param VDD=1.8 LB=0.15 WB=4.2 NFB=4
+.param VDD=1.8 L1=0.15 W1=4.2 NF1=4
 ```
 
 ### Example 2: PMOS Current Mirror
@@ -58,12 +58,12 @@ Subcircuit pins: VDD, VSS, IREF, IOUT
 ```spice
 .subckt PMOS_MIRROR VDD VSS IREF IOUT
 * Diode-connected reference transistor (gate shorted to drain = IREF)
-XM1 IREF IREF VDD VDD sky130_fd_pr__pfet_01v8 L=LB W=WB nf=NFB
+XM1 IREF IREF VDD VDD sky130_fd_pr__pfet_01v8 L=L1 W=W1 nf=NF1
 * Mirror output transistor (gate driven by IREF node)
-XM2 IOUT IREF VDD VDD sky130_fd_pr__pfet_01v8 L=LB W=WB nf=NFB
+XM2 IOUT IREF VDD VDD sky130_fd_pr__pfet_01v8 L=L1 W=W1 nf=NF1
 .ends PMOS_MIRROR
 
-.param VDD=1.8 LB=0.15 WB=4.2 NFB=4
+.param VDD=1.8 L1=0.15 W1=4.2 NF1=4
 ```
 
 ---

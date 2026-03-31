@@ -6,11 +6,10 @@ This repository contains code for CABAgent, an open-source framework for compreh
 ##  Table of Content
 1. [Structure](#structure)
 2. [Getting Started](#getting-started)
-3. [Customization](#customization)
-4. [Architecture](#architecture)
-5. [Results](#results)
-6. [License](#license)
-7. [Acknowledgement](#acknowledgement)
+3. [Architecture](#architecture)
+4. [Results](#results)
+5. [License](#license)
+6. [Acknowledgement](#acknowledgement)
 
 
 ##  Structure
@@ -26,13 +25,20 @@ While it is possible to have a stand-alone notebook, we have decided to split up
 |   │       ├───inputs
 |   │       ├───runs
 |   │       └───results
+|   │           ├───Pkg0
+|   │           ├───Pkg1
+|   │           ├───...
+|   │           └───benchmark.json
 |   └───...
 ├───Layout-ALIGN (submodule)
 ├───logs
 ├───src
 │   ├───analogagent
-│   |   ├───...
-|   |   └───...
+│   |   ├───__init__.py
+|   |   ├───agents.py
+|   |   ├───curator.py
+|   |   ├───main_run.py
+|   |   └───postprocess.py
 │   ├───cabgen
 │   |   ├───__init__.py
 │   |   ├───bench_gen.py
@@ -47,8 +53,7 @@ While it is possible to have a stand-alone notebook, we have decided to split up
 │   ├───dconfigs
 │   |   ├───OTA_5T.yaml
 |   |   └───...
-│   ├───design_pipeline.py
-│   └───...
+│   └───design_pipeline.py
 ├───.env
 ├───.gitignore
 ├───.gitmodules
@@ -112,8 +117,6 @@ sudo apt install ngspice
 sudo apt install klayout
 ```
 
-##  Customization
-
 
 ##  Architecture
 
@@ -122,6 +125,7 @@ sudo apt install klayout
 
 
 ##  License
-This project is licensed under
+This project is licensed under BSD 3 Clause. 
 
 ##  Acknowledgement
+This project is 

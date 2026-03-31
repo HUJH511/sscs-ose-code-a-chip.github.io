@@ -16,7 +16,7 @@ I0 VDD IB IB
 .include /usr/local/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
 .include /usr/local/share/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
 
-.include /home/Spec2Layout/designs/OTA_5T/SKY130/runs/ngspice/param.spice
+.include /home/sscs-ose-code-a-chip.github.io/VLSI26/submitted_notebooks/CABAgent/designs/OTA_5T/SKY130/runs/ngspice/param.spice
 
 .option reltol=1e-3 vabstol=1e-6 iabstol=1e-12 trtol=7
 

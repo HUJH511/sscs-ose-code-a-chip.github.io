@@ -11,9 +11,9 @@
         { "constraint": "PortLocation", "ports": ["IB"], "location": "BL" },
 
         { "constraint": "SameTemplate", "instances": ["XM1", "XM2"] },
-        { "constraint": "SameTemplate", "instances": ["XM3", "XM4"] },
+        { "constraint": "SameTemplate", "instances": ["XM4", "XM5"] },
 
-        { "constraint": "SymmetricBlocks", "direction": "V", "pairs": [["XM1", "XM2"], ["XM3", "XM4"]] }
+        { "constraint": "SymmetricBlocks", "direction": "V", "pairs": [["XM1", "XM2"], ["XM4", "XM5"]] }
     ],
     "param_align":
     [
@@ -23,10 +23,10 @@
         },
         { 
             "test_param": ["VDD", "VCM", "IB", "vi", "fi"],
-            "circuit_param": ["L1", "L3", "LT", "LB", "W1", "W3", "WT", "WB", "NF1", "NF3", "NFT", "NFB"]
+            "circuit_param": ["L_NMOS_DIFF", "L_PMOS_LOAD", "L_NMOS_TAIL", "L_NMOS_BIAS", "W_NMOS_DIFF", "W_PMOS_LOAD", "W_NMOS_TAIL", "W_NMOS_BIAS", "NF_NMOS_DIFF", "NF_PMOS_LOAD", "NF_NMOS_TAIL", "NF_NMOS_BIAS"]
         },
         {
-            "same_param": [["WB", "WT"], ["NFB", "NFT"], ["LB", "LT"]]
+            "same_param": [["W_NMOS_DIFF", "W_PMOS_LOAD"], ["NF_NMOS_DIFF", "NF_PMOS_LOAD"], ["L_NMOS_DIFF", "L_PMOS_LOAD"]]
         }
     ]
 }

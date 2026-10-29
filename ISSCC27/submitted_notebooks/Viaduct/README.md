@@ -5,11 +5,11 @@ Code a Chip Together, with Viaduct: A Designer and an AI Agent in One Live EDA S
 | Name                    | Affiliation                                                                                          | IEEE Member | SSCS Member |
 |:-----------------------:|:----------------------------------------------------------------------------------------------------:|:-----------:|:-----------:|
 | AXi Supeng*             | Institute of Microelectronics, A*STAR, Singapore; Nanyang Technological University, Singapore        | Yes         | No          |
-| Jinhai Hu*              | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
+| Jinhai Hu (Leader)*              | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
 | *Name*                  | *Affiliation*                                                                                        | Yes         | Yes         |
 | Wang Ling Goh           | Nanyang Technological University, Singapore                                                          | Yes         | Yes         |
 | *Name*                  | *Affiliation*                                                                                        | Yes         | Yes         |
-| Yuan Gao                | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
+| Yuan Gao (Advisor)      | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
 
 This ISSCC 2027 Code-a-Chip submission includes the original executed notebook and the
 runtime source files needed for its three case studies: designer interaction on a

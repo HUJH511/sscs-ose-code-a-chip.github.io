@@ -5,7 +5,7 @@ Code a Chip Together, with Viaduct: A Designer and an AI Agent in One Live EDA S
 | Name                    | Affiliation                                                                                          | IEEE Member | SSCS Member |
 |:-----------------------:|:----------------------------------------------------------------------------------------------------:|:-----------:|:-----------:|
 | AXi Supeng*             | Institute of Microelectronics, A*STAR, Singapore; Nanyang Technological University, Singapore        | Yes         | No          |
-| Jinhai Hu (Leader)*              | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
+| Jinhai Hu* (Leader)              | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
 | *Name*                  | *Affiliation*                                                                                        | Yes         | Yes         |
 | Wang Ling Goh           | Nanyang Technological University, Singapore                                                          | Yes         | Yes         |
 | *Name*                  | *Affiliation*                                                                                        | Yes         | Yes         |
@@ -111,18 +111,6 @@ was under `runs/closedloop_20261029_110951/`. The coil uses FastHenry quasi-stat
 L/R/k and FasterCap capacitances; the ideal case uses lumped inductors and coupling.
 The reported DRC result is clean against the SKY130 community deck (256 rules),
 run `20261029_110829_182e`, originally under `runs/drc_20261029_110829_182e/`.
-
-## Limitations
-
-- Hand edits are detected at the agent's next Viaduct request. The agent remains
-  responsible for deciding which earlier results are stale.
-- KLayout hand edits currently report a layout change without a per-shape diff.
-- The op amp study covers schematic simulation at the tt corner; it does not
-  include layout, parasitic extraction or post-layout verification.
-- FastHenry is magneto-quasi-static; FasterCap uses a homogeneous dielectric and
-  a ground-plane substrate approximation. Full-wave results are a separate
-  cross-check, not part of the optimization loop. Substrate resistivity is assumed.
-- Community-deck DRC is not foundry signoff. The notebook does not demonstrate LVS.
 
 ## View the submission
 

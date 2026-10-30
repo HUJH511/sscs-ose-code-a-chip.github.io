@@ -1,6 +1,6 @@
 # Code a Chip Together, with Viaduct: A Designer and an AI Agent in One Live EDA Session.
 
-https://github.com/user-attachments/assets/ffe2e637-417c-4622-838c-a0503deca0fa
+https://github.com/user-attachments/assets/a18d5b70-9fd1-42cb-bbf5-94733dc38573
 
 [Open the executed notebook](viaduct_code_a_chip.executed.ipynb)
 
@@ -12,24 +12,43 @@ https://github.com/user-attachments/assets/ffe2e637-417c-4622-838c-a0503deca0fa
 | Wang Ling Goh (Advisor) | Nanyang Technological University, Singapore                                                   | Yes         | Yes         | ewlgoh@ntu.edu.sg     |
 | Yuan Gao (Advisor)      | Institute of Microelectronics, A*STAR, Singapore                                              | Yes         | Yes         | gaoy@a-star.edu.sg    |
 
-This ISSCC 2027 Code-a-Chip submission includes the original executed notebook and the
-runtime source files needed for its three case studies: designer interaction on a
-five-transistor OTA, a two-stage op amp, and T-coil bandwidth extension with EM extraction.
+**Viaduct is, to our knowledge, the first unified bridge that brings an AI agent into
+open-source EDA Tools with an open-source PDK in the designer's live GUI session.**
+It lets the agent orchestrate schematic design, simulation, layout, extraction and
+verification through one interface, with structured results connecting each step.
+Viaduct utilizes
+[IIC-OSIC-TOOLS](https://github.com/iic-jku/iic-osic-tools), whose maintainers and
+contributors make this integrated workflow possible.
 
-Viaduct connects an AI agent to the open-source
-analog design tools in the IIC-OSIC-TOOLS container. The agent edits the layout and the
-schematic in the KLayout and xschem windows the designer already has open, runs simulation,
-EM extraction and DRC, and gets every result back as structured data. It can close the loop
-schematic → simulation → layout → extraction → re-simulation without anyone copying values
-between tools, while the designer watches every step on the desktop.
+**The key innovation is continuous collaboration during design, not just a result
+at the end.** In many agent-assisted circuit-design workflows, the designer sees
+completed outputs but has little visibility into a long optimization run. It can
+be hard to tell how far the agent has progressed or whether it is pursuing a
+misguided approach, and intervening may mean restarting the work. Viaduct makes
+the work visible as it happens in the open-source EDA Tools GUI that the designer
+already uses, so the designer can inspect progress and steer the agent while it
+works.
 
-The designer stays in charge. Every edit is a step in a **time scroll** that can be restored;
-the designer can **interrupt** the agent at any time (an instruction, a pause, a restore, or
-simply an edit by hand in the window) and the agent stops at its next edit, reads exactly what
-changed, acknowledges and continues from the modified design instead of rebuilding it. The
-**cockpit** page puts the desktop, the session state, the interrupt box and the time scroll side
-by side.
+The shared interface supports live instructions, hand edits, pause/resume and
+restoration of earlier design states. Each edit becomes a restorable step in the
+**time scroll**. When the designer intervenes, the agent receives the exact change,
+acknowledges it and continues from the updated design with its remaining plan.
+Coordinated edits protect the designer's changes and let both collaborators work
+in one session without overwriting each other's work. The **cockpit** brings the
+live desktop, progress, instructions and history together.
 
+In real IC design the designer is indispensable: specifications, topology,
+trade-offs, layout intent and sign-off are decisions that need judgement and
+someone accountable for them. Viaduct does not try to replace the designer. It
+brings the AI into the live open-source EDA Tools GUI that the designer is already
+using, hands the legwork to the AI and leaves the judgement with the designer.
+
+**In one line: the AI is a colleague working on your screen next to you, not a black
+box that works behind a closed door and hands back a pile of files at the end.**
+
+This ISSCC 2027 Code-a-Chip submission includes the executed notebook and runtime
+source files for three case studies: a five-transistor OTA, a two-stage op amp,
+and T-coil bandwidth extension with EM extraction.
 
 ## What Viaduct can do
 

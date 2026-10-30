@@ -1,8 +1,6 @@
 # Code a Chip Together, with Viaduct: A Designer and an AI Agent in One Live EDA Session.
 
-<video src="https://raw.githubusercontent.com/HUJH511/Viaduct/code-a-chip_ISSCC-27/viaduct_code_a_chip_together.mp4" controls width="100%">
-  <a href="viaduct_code_a_chip_together.mp4">Watch the Viaduct live designer/agent demonstration (2 min 25 s)</a>
-</video>
+https://github.com/user-attachments/assets/ffe2e637-417c-4622-838c-a0503deca0fa
 
 [Watch the live demonstration (MP4, 2 min 25 s)](viaduct_code_a_chip_together.mp4)
 

@@ -2,15 +2,15 @@
 
 https://github.com/user-attachments/assets/ffe2e637-417c-4622-838c-a0503deca0fa
 
-[Watch the live demonstration (MP4, 2 min 25 s)](viaduct_code_a_chip_together.mp4)
+[Open the executed notebook](viaduct_code_a_chip.executed.ipynb)
 
-| Name                    | Affiliation                                                                                          | IEEE Member | SSCS Member |
-|:-----------------------:|:----------------------------------------------------------------------------------------------------:|:-----------:|:-----------:|
-| AXi Supeng*             | Institute of Microelectronics, A*STAR, Singapore; Nanyang Technological University, Singapore        | Yes         | No          |
-| Jinhai Hu* (Leader)     | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
-| Zhishuai Zhang          | ETH Zürich, Switzerland                                                                              | Yes         | Yes         |
-| Wang Ling Goh (Advisor) | Nanyang Technological University, Singapore                                                          | Yes         | Yes         |
-| Yuan Gao (Advisor)      | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
+| Name                    | Affiliation                                                                                          | IEEE Member | SSCS Member | Email |
+|:-----------------------:|:----------------------------------------------------------------------------------------------------:|:-----------:|:-----------:|:-----:|
+| AXi Supeng*             | Institute of Microelectronics, A*STAR, Singapore; Nanyang Technological University, Singapore        | Yes         | No          |AXIS0001@e.ntu.edu.sg|
+| Jinhai Hu* (Leader)     | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |hujh@a-star.edu.sg|
+| Zhishuai Zhang          | ETH Zürich, Switzerland                                                                              | Yes         | Yes         |zzhishuai@ethz.ch|
+| Wang Ling Goh (Advisor) | Nanyang Technological University, Singapore                                                          | Yes         | Yes         |ewlgoh@ntu.edu.sg|
+| Yuan Gao (Advisor)      | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |gaoy@a-star.edu.sg|
 
 This ISSCC 2027 Code-a-Chip submission includes the original executed notebook and the
 runtime source files needed for its three case studies: designer interaction on a

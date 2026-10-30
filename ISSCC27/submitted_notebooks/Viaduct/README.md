@@ -1,14 +1,19 @@
 # Viaduct
 
+<video src="https://raw.githubusercontent.com/HUJH511/Viaduct/code-a-chip_ISSCC-27/viaduct_code_a_chip_together.mp4" controls width="100%">
+  <a href="viaduct_code_a_chip_together.mp4">Watch the Viaduct live designer/agent demonstration (2 min 25 s)</a>
+</video>
+
+[Watch the live demonstration (MP4, 2 min 25 s)](viaduct_code_a_chip_together.mp4)
+
 Code a Chip Together, with Viaduct: A Designer and an AI Agent in One Live EDA Session.
 
 | Name                    | Affiliation                                                                                          | IEEE Member | SSCS Member |
 |:-----------------------:|:----------------------------------------------------------------------------------------------------:|:-----------:|:-----------:|
 | AXi Supeng*             | Institute of Microelectronics, A*STAR, Singapore; Nanyang Technological University, Singapore        | Yes         | No          |
-| Jinhai Hu* (Leader)              | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
-| *Name*                  | *Affiliation*                                                                                        | Yes         | Yes         |
-| Wang Ling Goh           | Nanyang Technological University, Singapore                                                          | Yes         | Yes         |
-| *Name*                  | *Affiliation*                                                                                        | Yes         | Yes         |
+| Jinhai Hu* (Leader)     | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
+| Zhishuai Zhang          | ETH Zürich, Switzerland                                                                              | Yes         | Yes         |
+| Wang Ling Goh (Advisor) | Nanyang Technological University, Singapore                                                          | Yes         | Yes         |
 | Yuan Gao (Advisor)      | Institute of Microelectronics, A*STAR, Singapore                                                     | Yes         | Yes         |
 
 This ISSCC 2027 Code-a-Chip submission includes the original executed notebook and the
@@ -115,7 +120,8 @@ run `20261029_110829_182e`, originally under `runs/drc_20261029_110829_182e/`.
 ## View the submission
 
 Open `viaduct_code_a_chip.executed.ipynb` to read the notebook with its saved outputs.
-The live-session demonstration is `viaduct_designer_interrupt_demo.mp4`.
+The HTML reading copy is `viaduct_code_a_chip.html`.
+The live-session demonstration is `viaduct_code_a_chip_together.mp4`.
 
 ## Reproduce
 
@@ -151,12 +157,22 @@ jupyter nbconvert --to html viaduct_code_a_chip.executed.ipynb --output viaduct_
 
 For the live desktop interface shown in the video, run `python client.py start`
 and `python client.py cockpit` in the configured environment.
+The project-local `.mcp.json` starts the MCP server with
+`python -m viaduct.mcp_server`; launch your agent from this directory with the
+Viaduct Python environment available. `AGENTS.md` and `skills/` contain its
+working rules and per-tool instructions.
 
 ## Submission contents
 
 ```text
+README.md                          Submission overview and reproduction instructions
 viaduct_code_a_chip.executed.ipynb   Executed notebook with saved outputs
-viaduct_designer_interrupt_demo.mp4 Live designer/agent interaction video
+viaduct_code_a_chip.html             HTML reading copy with saved outputs
+viaduct_code_a_chip_together.mp4 Live designer/agent interaction video
+AGENTS.md                          Working rules for coding agents
+skills/                            Per-tool instructions used by agents
+.mcp.json                          Project-local MCP server configuration
+.gitignore                         Generated runs and local-state exclusions
 client.py                          Command-line entry point
 viaduct/                           Python API, transport, CLI, MCP and cockpit
 container/                         Relay, history, interrupts and simulation runners
@@ -176,6 +192,8 @@ The runtime generates its own `runs/`, `xschem/` and session-state directories.
 Apache-2.0; see `LICENSE`. External EDA tools and PDKs retain their own licenses.
 
 ## Acknowledgement
+
+This work is supported by the Agency for Science, Technology and Research (A*STAR), Singapore under the Semiconductor RIE Flagship Programme (Integrated Circuit Design & Systems), grant No. H26-MSE1535.
 
 We thank the maintainers and contributors of
 [IIC-OSIC-TOOLS](https://github.com/iic-jku/iic-osic-tools) for providing the

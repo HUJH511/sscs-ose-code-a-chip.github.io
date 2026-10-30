@@ -50,6 +50,8 @@ This ISSCC 2027 Code-a-Chip submission includes the executed notebook and runtim
 source files for three case studies: a five-transistor OTA, a two-stage op amp,
 and T-coil bandwidth extension with EM extraction.
 
+![Designer, AI agent and open-source EDA in one live session through Viaduct](docs/viaduct_overview.png)
+
 ## What Viaduct can do
 
 | Area | What the agent can do |
@@ -195,6 +197,7 @@ taps/                              In-process KLayout and xschem integrations
 devices/tcoil/                     T-coil geometry and KLayout PCell
 pdk/                               SKY130 layer and stack profiles
 examples/                          The three circuit builders used by the notebook
+docs/viaduct_overview.png          Designer/agent workflow diagram
 docs/fullwave/                     Archived comparison data and plot used by C4
 LICENSE                            Apache-2.0 license
 pyproject.toml                     Python package metadata

@@ -1,6 +1,6 @@
 # Code a Chip Together, with Viaduct: A Designer and an AI Agent in One Live EDA Session.
 
-https://github.com/user-attachments/assets/c45c7dd5-3c03-4813-87d3-313c1846c187
+https://github.com/user-attachments/assets/1a8d281a-3c4f-4f4e-a3f9-29e1dfef8f9f
 
 [Open the executed notebook](viaduct_code_a_chip.executed.ipynb)
 
